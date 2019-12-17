@@ -43,31 +43,45 @@
                 </li>
                 <li>
                     <p>Inside App folder create a new file <code>counter.actions.ts</code> to describe the counter actions to increment, decrement, and reset its value.</p>
-                    <pre><code>
-                        import { createAction } from '@ngrx/store';<br>
-                        export const increment = createAction('[Counter Component] Increment');<br>
-                        export const decrement = createAction('[Counter Component] Decrement');<br>
-                        export const reset = createAction('[Counter Component] Reset');
-                    </code></pre>
+                    <pre>
+                        <code>
+                            import { createAction } from '@ngrx/store';<br>
+                            export const increment = createAction('[Counter Component] Increment');<br>
+                            export const decrement = createAction('[Counter Component] Decrement');<br>
+                            export const reset = createAction('[Counter Component] Reset');
+                        </code>
+                    </pre>
                 </li>
                 <li>
                     <p>Inside App folder create a new file <code>counter.reducer.ts</code>. Define a reducer function to handle changes in the counter value based on the provided actions.</p>
-                    <pre><code>
-                        import { createReducer, on } from '@ngrx/store';<br>
-                        import { increment, decrement, reset } from './counter.actions';<br>
-                        
-                        export const initialState = 0;<br>
-                        
-                        const _counterReducer = createReducer(initialState,<br>
-                            on(increment, state => state + 1),<br>
-                            on(decrement, state => state - 1),<br>
-                            on(reset, state => 0),<br>
-                        );<br>
-                        
-                        export function counterReducer(state, action) {<br>
-                            return _counterReducer(state, action);<br>
-                        }
-                    </code></pre>
+                    <pre>
+                        <code>
+                            import { createReducer, on } from '@ngrx/store';<br>
+                            import { increment, decrement, reset } from './counter.actions';<br>
+                            
+                            export const initialState = 0;<br>
+                            
+                            const _counterReducer = createReducer(initialState,<br>
+                                on(increment, state => state + 1),<br>
+                                on(decrement, state => state - 1),<br>
+                                on(reset, state => 0),<br>
+                            );<br>
+                            
+                            export function counterReducer(state, action) {<br>
+                                return _counterReducer(state, action);<br>
+                            }
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    <p>Import the StoreModule from @ngrx/store and the counter.reducer file.
+                    </p>
+                    <pre>
+                        <code>
+                            import { StoreModule } from '@ngrx/store';
+                            import { counterReducer } from './counter.reducer';
+                        </code>
+                    </pre>
                 </li>
             </ol>
         </div>
