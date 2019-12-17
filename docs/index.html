@@ -36,21 +36,22 @@
                 <li>Selectors: are pure functions used to select, derive and compose pieces of state.</li>
                 <li>State: State is accessed with the Store, an observable of state and an observer of actions.</li>
             </ul>
-            <p>1. Generate a new project using Angular CLI.</p>
-            <p>2. Inside App folder create a new file <code>counter.actions.ts</code> to describe the counter actions to increment, decrement, and reset its value.</p>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-6">
-                <code>
-                    import { createAction } from '@ngrx/store';<br>
-                    export const increment = createAction('[Counter Component] Increment');<br>
-                    export const decrement = createAction('[Counter Component] Decrement');<br>
-                    export const reset = createAction('[Counter Component] Reset');
-                </code>
-            </div>
-            <p>3. Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
-            <div class="col-sm-2"></div>        
-            <div class="col-sm-6">
-                <code>
+            <ol>
+                <li>
+                    <p>Generate a new project using Angular CLI.</p>
+                </li>
+                <li>
+                    <p>Inside App folder create a new file <code>counter.actions.ts</code> to describe the counter actions to increment, decrement, and reset its value.</p>
+                    <code>
+                        import { createAction } from '@ngrx/store';<br>
+                        export const increment = createAction('[Counter Component] Increment');<br>
+                        export const decrement = createAction('[Counter Component] Decrement');<br>
+                        export const reset = createAction('[Counter Component] Reset');
+                    </code>
+                </li>
+                <li>
+                    <p>3. Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
+                    <code>
                         import { createReducer, on } from '@ngrx/store';<br>
                         import { increment, decrement, reset } from './counter.actions';<br>
                         
@@ -65,8 +66,9 @@
                         export function counterReducer(state, action) {<br>
                             return _counterReducer(state, action);<br>
                         }
-                </code>
-            </div>            
+                    </code>
+                </li>
+            </ol>
         </div>
       </div>
     </div>
