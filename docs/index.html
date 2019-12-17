@@ -36,6 +36,7 @@
                 <li>Selectors: are pure functions used to select, derive and compose pieces of state.</li>
                 <li>State: State is accessed with the Store, an observable of state and an observer of actions.</li>
             </ul>
+            <h4>Steps:</h4>
             <ol>
                 <li>
                     <p>Generate a new project using Angular CLI.</p>
@@ -50,7 +51,7 @@
                     </code>
                 </li>
                 <li>
-                    <p>3. Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
+                    <p>Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
                     <code>
                         import { createReducer, on } from '@ngrx/store';<br>
                         import { increment, decrement, reset } from './counter.actions';<br>
