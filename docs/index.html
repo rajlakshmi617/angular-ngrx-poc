@@ -43,16 +43,16 @@
                 </li>
                 <li>
                     <p>Inside App folder create a new file <code>counter.actions.ts</code> to describe the counter actions to increment, decrement, and reset its value.</p>
-                    <code>
+                    <pre><code>
                         import { createAction } from '@ngrx/store';<br>
                         export const increment = createAction('[Counter Component] Increment');<br>
                         export const decrement = createAction('[Counter Component] Decrement');<br>
                         export const reset = createAction('[Counter Component] Reset');
-                    </code>
+                    </code></pre>
                 </li>
                 <li>
-                    <p>Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
-                    <code>
+                    <p>Inside App folder create a new file <code>counter.reducer.ts</code>. Define a reducer function to handle changes in the counter value based on the provided actions.</p>
+                    <pre><code>
                         import { createReducer, on } from '@ngrx/store';<br>
                         import { increment, decrement, reset } from './counter.actions';<br>
                         
@@ -67,7 +67,7 @@
                         export function counterReducer(state, action) {<br>
                             return _counterReducer(state, action);<br>
                         }
-                    </code>
+                    </code></pre>
                 </li>
             </ol>
         </div>
