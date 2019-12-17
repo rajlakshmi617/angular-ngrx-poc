@@ -38,29 +38,35 @@
             </ul>
             <p>1. Generate a new project using Angular CLI.</p>
             <p>2. Inside App folder create a new file <code>counter.actions.ts</code> to describe the counter actions to increment, decrement, and reset its value.</p>
-            <code>
-                import { createAction } from '@ngrx/store';<br>
-                export const increment = createAction('[Counter Component] Increment');<br>
-                export const decrement = createAction('[Counter Component] Decrement');<br>
-                export const reset = createAction('[Counter Component] Reset');
-            </code>
-            <p>3. Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
-            <code>
-                import { createReducer, on } from '@ngrx/store';<br>
-                import { increment, decrement, reset } from './counter.actions';<br>
-                
-                export const initialState = 0;<br>
-                
-                const _counterReducer = createReducer(initialState,<br>
-                    on(increment, state => state + 1),<br>
-                    on(decrement, state => state - 1),<br>
-                    on(reset, state => 0),<br>
-                );<br>
-                
-                export function counterReducer(state, action) {<br>
-                    return _counterReducer(state, action);<br>
-                }
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6">
+                <code>
+                    import { createAction } from '@ngrx/store';<br>
+                    export const increment = createAction('[Counter Component] Increment');<br>
+                    export const decrement = createAction('[Counter Component] Decrement');<br>
+                    export const reset = createAction('[Counter Component] Reset');
                 </code>
+            </div>
+            <p>3. Create a new file <code>counter.reducer.ts</code>Define a reducer function to handle changes in the counter value based on the provided actions.</p>
+            <div class="col-sm-2"></div>        
+            <div class="col-sm-6">
+                <code>
+                        import { createReducer, on } from '@ngrx/store';<br>
+                        import { increment, decrement, reset } from './counter.actions';<br>
+                        
+                        export const initialState = 0;<br>
+                        
+                        const _counterReducer = createReducer(initialState,<br>
+                            on(increment, state => state + 1),<br>
+                            on(decrement, state => state - 1),<br>
+                            on(reset, state => 0),<br>
+                        );<br>
+                        
+                        export function counterReducer(state, action) {<br>
+                            return _counterReducer(state, action);<br>
+                        }
+                </code>
+            </div>            
         </div>
       </div>
     </div>
