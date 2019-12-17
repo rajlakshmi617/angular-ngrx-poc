@@ -27,7 +27,22 @@
             <h4>NgRx</h4>
         </div>
         <div class="col-sm-8">
-            <p>@ngrx/store</p>
+            <h4>@ngrx/store</h4>
+            <p>Store is RxJS powered state management for Angular applications, inspired by Redux. Store is a controlled state container designed to help write performant, consistent applications on top of Angular.</p>
+            <h4>Key Concept</h4>
+            <ul>
+                <li>Action : Describe unique events that are dispatched from components and services.</li>
+                <li>Reducers: State changes are handled by pure functions called reducers that take the current state and the latest action to compute a new state.</li>
+                <li>Selectors: are pure functions used to select, derive and compose pieces of state.</li>
+                <li>State: State is accessed with the Store, an observable of state and an observer of actions.</li>
+            </ul>
+            <p>1. Generate a new project using Angular CLI.</p>
+            <p>2. Inside App folder create a new file <code>counter.actions.ts</code></p>
+            <code>import { createAction } from '@ngrx/store';
+
+                    export const increment = createAction('[Counter Component] Increment');
+                    export const decrement = createAction('[Counter Component] Decrement');
+                    export const reset = createAction('[Counter Component] Reset');</code>
         </div>
       </div>
     </div>
