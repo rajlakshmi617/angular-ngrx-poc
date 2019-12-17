@@ -83,7 +83,105 @@
                         </code>
                     </pre>
                 </li>
+                <li>
+                    <p>Add the StoreModule.forRoot function in the imports array of your AppModule with an object containing the count and the counterReducer that manages the state of the counter. The StoreModule.forRoot() method registers the global providers needed to access the Store throughout your application.</p>
+                    <pre>
+                        <code>
+                            import { BrowserModule } from '@angular/platform-browser';
+                            import { NgModule } from '@angular/core';
+                            
+                            import { AppComponent } from './app.component';
+                            
+                            import { StoreModule } from '@ngrx/store';
+                            import { counterReducer } from './counter.reducer';
+                            
+                            @NgModule({
+                                declarations: [AppComponent],
+                                imports: [
+                                BrowserModule,
+                                StoreModule.forRoot({ count: counterReducer })
+                                ],
+                                providers: [],
+                                bootstrap: [AppComponent],
+                            })
+                            export class AppModule {}
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    <p>Create a new Component named my-counter in the app folder. Inject the Store service into your component to dispatch the counter actions, and use the select operator to select data from the state.</p>
+                    <p>Update the MyCounterComponent template with buttons to call the increment, decrement, and reset methods. Use the async pipe to subscribe to the count$ observable.</p>
+                    <pre>
+                        <code>
+                            <button id="increment" (click)="increment()">Increment</button>
+
+                            <div>Current Count: {{ count$ | async }}</div>
+                            
+                            <button id="decrement" (click)="decrement()">Decrement</button>
+                            
+                            <button id="reset" (click)="reset()">Reset Counter</button>
+                        </code>
+                    </pre>
+                    <p>Update the MyCounterComponent class with a selector for the count, and methods to dispatch the Increment, Decrement, and Reset actions.</p>
+                    <pre>
+                        <code>
+                            import { Component } from '@angular/core';
+                            import { Store, select } from '@ngrx/store';
+                            import { Observable } from 'rxjs';
+                            import { increment, decrement, reset } from '../counter.actions';
+                            
+                            @Component({
+                                selector: 'app-my-counter',
+                                templateUrl: './my-counter.component.html',
+                                styleUrls: ['./my-counter.component.css'],
+                            })
+                            export class MyCounterComponent {
+                                count$: Observable<number>;
+                            
+                                constructor(private store: Store<{ count: number }>) {
+                                this.count$ = store.pipe(select('count'));
+                                }
+                            
+                                increment() {
+                                this.store.dispatch(increment());
+                                }
+                            
+                                decrement() {
+                                this.store.dispatch(decrement());
+                                }
+                            
+                                reset() {
+                                this.store.dispatch(reset());
+                                }
+                            }
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    <p>Add the MyCounter component to your AppComponent template.</p>
+                    <pre>
+                        <code>
+                            <app-my-counter></app-my-counter>
+                        </code>
+                    </pre>
+                    <p>And that's it! Click the increment, decrement, and reset buttons to change the state of the counter.</p>
+                </li>
             </ol>
+            <h5>Let's cover what you did:</h5>
+            <ul>
+                <li>
+                    <p>Defined actions to express events.</p>
+                </li>
+                <li>
+                    <p>Defined a reducer function to manage the state of the counter.</p>
+                </li>
+                <li>
+                    <p>Registered the global state container that is available throughout your application</p>
+                </li>
+                <li>
+                    <p>Injected the Store service to dispatch actions and select the current state of the counter.</p>
+                </li>
+            </ul>
         </div>
       </div>
     </div>
